@@ -1,0 +1,1 @@
+chromedriver_path = "C:\MA\PY\Automations\duc_autotest\drivers\chrome\chromedriver.exe"
