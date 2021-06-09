@@ -13,7 +13,7 @@ url = 'https://ducatuswallet.rocknblock.io/'
 
 
 ### Script ###
-class First_start_import_wallet(unittest.TestCase):
+class import_wallet(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=options.chromedriver_path)
         self.driver.implicitly_wait(1000)
@@ -63,6 +63,7 @@ class First_start_import_wallet(unittest.TestCase):
             "//page-import-wallet/ion-header/ion-navbar/ion-buttons/button")))
         import_wallet.click()
         print("import key is ok")
+        time.sleep(1)
 
         no_password = "//div[3]/button/span"
         no_password_2 = "//div[3]/button[2]/span"
@@ -94,6 +95,7 @@ class First_start_import_wallet(unittest.TestCase):
             "//page-import-wallet/ion-header/ion-navbar/ion-buttons/button")))
         import_wallet.click()
         print("import key is ok")
+        time.sleep(1)
 
         no_password = "//div[3]/button/span"
         no_password_2 = "//div[3]/button[2]/span"
