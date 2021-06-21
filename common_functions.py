@@ -79,12 +79,12 @@ def import_wallet_by_seed_from_menu(wait):
         "(.//*[normalize-space(text()) and normalize-space(.)='Requires invitation to join'])[1]/following::div[3]")))
     import_wallet_button.click()
     print("start import is ok")
-
+    time.sleep(0.3)
     wait.until(EC.element_to_be_clickable((
         By.XPATH,
         "//textarea"))).send_keys(private_keys.wallet_key_2)
     print("key is ok")
-
+    time.sleep(0.3)
     import_button = wait.until(EC.element_to_be_clickable((
         By.XPATH,
         "//page-import-wallet/ion-header/ion-navbar/ion-buttons/button")))
