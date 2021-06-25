@@ -11,13 +11,14 @@ class Transaction(options.SetUppedTestCase):
         wait = WebDriverWait(self.driver, 100)
 
         import_wallets(wait=wait)
+        time.sleep(2)
 
         open_wallet = wait.until(EC.element_to_be_clickable((
             By.XPATH,
-            "//ion-label[@id='lbl-85']/div")))
+            "// *[ @ id = 'lbl-85'] / div")))
         open_wallet.click()
         time.sleep(1)
-        print("open sourse wallet is ok")
+        print("open source wallet is ok")
 
         send_button = wait.until(EC.element_to_be_clickable((
             By.XPATH,
@@ -36,12 +37,32 @@ class Transaction(options.SetUppedTestCase):
         print("select destination wallet is ok")
         time.sleep(1)
 
-        enter_amount = wait.until(EC.element_to_be_clickable((
+        #enter_amount = wait.until(EC.element_to_be_clickable((
+        #    By.XPATH,
+        #    "(.//*[normalize-space(text()) and normalize-space(.)='DUC'])[5]/following::span[1]")))
+        #enter_amount.click()
+        #time.sleep(1)
+        #print("enter amount is ok")
+
+        zero = wait.until(EC.element_to_be_clickable((
             By.XPATH,
-            "(.//*[normalize-space(text()) and normalize-space(.)='DUC'])[5]/following::span[1]")))
-        enter_amount.click()
-        time.sleep(1)
-        print("enter amount is ok")
+            "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
+            "div[2]/div/div[3]/pin-pad/ion-row[4]/ion-col[2]/div/span")))
+        zero.click()
+
+        dot = wait.until(EC.element_to_be_clickable((
+            By.XPATH,
+            "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
+            "div[2]/div/div[3]/pin-pad/ion-row[4]/ion-col[1]/div/span/span")))
+        dot.click()
+        zero.click()
+        zero.click()
+
+        one = wait.until(EC.element_to_be_clickable((
+            By.XPATH,
+            "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
+            "div[2]/div/div[3]/pin-pad/ion-row[1]/ion-col[1]/div/span")))
+        one.click()
 
         continue_button = wait.until(EC.element_to_be_clickable((
             By.XPATH,
