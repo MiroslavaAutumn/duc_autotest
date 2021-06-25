@@ -1,3 +1,7 @@
+import time
+import unittest
+from selenium import webdriver
+
 chromedriver_path = "C:\MA\PY\Automations\duc_autotest\drivers\chrome\chromedriver.exe"
 url = 'https://ducatuswallet.rocknblock.io/'
 #url = "https://wallet.dicatus.io/"
