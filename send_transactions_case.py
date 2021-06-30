@@ -4,10 +4,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 import options
 import time
 from import_wallet_case import import_wallets
-
+from selenium import webdriver
 
 class Transaction(options.SetUppedTestCase):
-    def test_case_first_launch(self):
+    def test_case_first_launch(self, ):
         wait = WebDriverWait(self.driver, 100)
 
         import_wallets(wait=wait)
@@ -44,25 +44,30 @@ class Transaction(options.SetUppedTestCase):
         #time.sleep(1)
         #print("enter amount is ok")
 
-        zero = wait.until(EC.element_to_be_clickable((
-            By.XPATH,
-            "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
-            "div[2]/div/div[3]/pin-pad/ion-row[4]/ion-col[2]/div/span")))
-        zero.click()
+        #zero = wait.until(EC.element_to_be_clickable((
+        #    By.XPATH,
+        #    "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
+        #    "div[2]/div/div[3]/pin-pad/ion-row[4]/ion-col[2]/div/span")))
+        #zero.click()
+        #
+        #dot = wait.until(EC.element_to_be_clickable((
+        #    By.XPATH,
+        #    "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
+        #    "div[2]/div/div[3]/pin-pad/ion-row[4]/ion-col[1]/div/span/span")))
+        #dot.click()
+        #zero.click()
+        #zero.click()
+        #
+        #one = wait.until(EC.element_to_be_clickable((
+        #    By.XPATH,
+        #    "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
+        #    "div[2]/div/div[3]/pin-pad/ion-row[1]/ion-col[1]/div/span")))
+        #one.click()
 
-        dot = wait.until(EC.element_to_be_clickable((
-            By.XPATH,
-            "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
-            "div[2]/div/div[3]/pin-pad/ion-row[4]/ion-col[1]/div/span/span")))
-        dot.click()
-        zero.click()
-        zero.click()
-
-        one = wait.until(EC.element_to_be_clickable((
-            By.XPATH,
-            "/html/body/ion-app/ng-component/ion-nav/ng-component/ion-tabs/page-amount/ion-content/"
-            "div[2]/div/div[3]/pin-pad/ion-row[1]/ion-col[1]/div/span")))
-        one.click()
+        webdriver.ActionChains(self.driver).send_keys("0").perform()
+        webdriver.ActionChains(self.driver).send_keys(".").perform()
+        webdriver.ActionChains(self.driver).send_keys("1").perform()
+        time.sleep(1)
 
         continue_button = wait.until(EC.element_to_be_clickable((
             By.XPATH,
